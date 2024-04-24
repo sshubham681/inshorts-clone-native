@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 import React from "react";
 
 const TopNavigation = ({ index, setIndex }) => {
@@ -21,6 +21,22 @@ const TopNavigation = ({ index, setIndex }) => {
           <Text style={{ ...styles.text, color: "lightgrey" }}>Discover</Text>
         </TouchableOpacity>
       )}
+      <Text style={{ ...styles.center, color: 'white'}}>
+        {index ? "All News" : "Discover"}
+      </Text>
+      {index ? (
+        <TouchableOpacity style={styles.right}>
+          <Text style={styles.text}>
+            <AntDesign name="reload1" size={24} color="#007fff" />
+          </Text>
+        </TouchableOpacity>
+      ): (
+        <TouchableOpacity style={styles.right}>
+          <Text style={{...styles.text, color:'white'}}>All News
+          </Text>
+          <SimpleLineIcons name="arrow-right" size={15} color="#007FFF" />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -40,9 +56,21 @@ const styles = StyleSheet.create({
     width: 80,
     justifyContent: "space-between",
   },
+  right: {
+    alignItems: "flex-end",
+    width: 80
+  },
   text: {
     fontSize: 16,
   },
+  center: {
+    paddingBottom: 6,
+    borderBottomColor: "#007FFF",
+    borderBottomWidth: 5,
+    borderRadius: 10,
+    fontSize: 16,
+    fontWeight: "700"
+  }
 });
 
 export default TopNavigation;
