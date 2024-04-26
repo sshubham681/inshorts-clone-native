@@ -1,30 +1,31 @@
-import { View, Text, useWindowDimensions } from 'react-native'
-import React, { useState } from 'react'
-import {SceneMap, TabView} from 'react-native-tab-view'
-import DiscoverScreen from '../Screens/DiscoverScreen'
-import NewsScreen from '../Screens/NewsScreen'
-import TopNavigation from './TopNavigation'
+import { View, Text, useWindowDimensions } from "react-native";
+import React, { useContext, useState } from "react";
+import { SceneMap, TabView } from "react-native-tab-view";
+import DiscoverScreen from "../Screens/DiscoverScreen";
+import NewsScreen from "../Screens/NewsScreen";
+import TopNavigation from "./TopNavigation";
+import { NewsContext } from "../api/Context";
 
 const InshortTabs = () => {
-  const layout = useWindowDimensions()
-  const [index, setIndex] = useState(1)
+  const layout = useWindowDimensions();
+  const { index, setIndex } = useContext(NewsContext);
   const [routes] = useState([
-    {key: 'first', title: "Discover"},
-    {key: 'second', title: "News"},
-  ])
+    { key: "first", title: "Discover" },
+    { key: "second", title: "News" },
+  ]);
   const renderScene = SceneMap({
     first: DiscoverScreen,
-    second: NewsScreen
-  })
+    second: NewsScreen,
+  });
   return (
     <TabView
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
       initialLayout={{ width: layout.width }}
-      renderTabBar={()=> <TopNavigation index={index} setIndex={setIndex}/> }
+      renderTabBar={() => <TopNavigation index={index} setIndex={setIndex} />}
     />
-  )
-}
+  );
+};
 
-export default InshortTabs
+export default InshortTabs;
