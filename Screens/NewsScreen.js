@@ -9,8 +9,6 @@ const NewsScreen = () => {
   const {
     news: { articles },
   } = useContext(NewsContext);
-  // console.log(articles)
-  console.log("-----");
   const windowHeight = Dimensions.get("window").height;
   const windowWidth = Dimensions.get("window").width;
 

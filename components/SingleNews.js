@@ -37,7 +37,7 @@ const SingleNews = ({ item, index }) => {
           source={{ uri: urlToImage }}
         >
           <TouchableOpacity onPress={() => Linking.openURL(url)}>
-            <Text>{content && `${content.slice(0, 45)}...`}</Text>
+            <Text>{content && `${content.slice(0, 55)}...`}</Text>
             <Text style={{ fontSize: 17, fontWeight: "bold", color: "white" }}>
               Read More
             </Text>
@@ -49,12 +49,12 @@ const SingleNews = ({ item, index }) => {
 };
 const styles = StyleSheet.create({
   title: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: "bold",
     paddingBottom: 10,
   },
   content: {
-    fontSize: 18,
+    fontSize: 16,
     paddingBottom: 10,
   },
   description: {

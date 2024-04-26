@@ -3,6 +3,7 @@ import InshortTabs from "./components/InshortTabs";
 import Context from "./api/Context";
 
 function App() {
+  console.log("-----------------------------")
   return (
     <View style={{ ...styles.container, backgroundColor: "#282C35" }}>
       <InshortTabs />

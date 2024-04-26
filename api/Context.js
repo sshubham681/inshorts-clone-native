@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { getNewsAPI } from "./api";
+import { categories, getNewsAPI } from "./api";
 
 export const NewsContext = createContext();
 
@@ -17,7 +17,7 @@ const Context = ({ children }) => {
     fetchNews();
   }, []);
   return (
-    <NewsContext.Provider value={{ news, index, setIndex }}>
+    <NewsContext.Provider value={{ news, index, setIndex, fetchNews, category, setCategory }}>
       {children}
     </NewsContext.Provider>
   );
